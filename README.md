@@ -4,7 +4,7 @@ Rescues exceptions using pattern matching.
 
 Usage example:
 
-```
+```ruby
   def foo
     raise StandardError.new('foo bar')
   rescue ME.matches(/bar/)
@@ -18,7 +18,7 @@ Usage example:
 An ideal use case for this gem:
 
 **Old code**
-```
+```ruby
   def bar
     do_something_complicated
   rescue StandardError => e
@@ -31,9 +31,9 @@ An ideal use case for this gem:
 ```
 
 **New code**
-```
+```ruby
   def bar
-    raise StandardError.new('kind of')
+    do_something_complicated
   rescue ME.matches(/some kind of error/)
     treat_error
   rescue StandardError
