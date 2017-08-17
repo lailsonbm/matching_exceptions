@@ -5,7 +5,27 @@ RSpec.describe MatchingExceptions do
     expect(MatchingExceptions::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "allows exceptions to be rescued by message" do
+    rescued = false
+
+    begin
+      raise StandardError.new("error message")
+    rescue ME.matches("message")
+      rescued = true
+    end
+
+    expect(rescued).to be_truthy
+  end
+
+  it "allows exceptions to be rescued by regular expressions" do
+    rescued = false
+
+    begin
+      raise StandardError.new("error message")
+    rescue ME.matches(/MESSAGE/i)
+      rescued = true
+    end
+
+    expect(rescued).to be_truthy
   end
 end
