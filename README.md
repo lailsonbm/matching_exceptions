@@ -61,7 +61,9 @@ Or install it yourself as:
 
 Call `ME.matches(something)` in a rescue block to rescue exceptions with `something`.
 
-By default, `message` will be matched (i.e. the exception will be rescued if `e.message == something`). You can also specify a custom attribute with the keyword argument `attribute:`:
+By default, `message` will be matched (i.e. the exception will be rescued if `e.message == something`, or `e.message =~ something` if `something` is a regex).
+
+You can also specify a custom attribute with the keyword argument `attribute:`:
 
 ```
   class CustomError < StandardError
@@ -72,7 +74,7 @@ By default, `message` will be matched (i.e. the exception will be rescued if `e.
 
   begin
     raise CustomError.new('foo', 'some weird custom field')
-  rescue ME.matches('weird', attribute: :my_custom_attr)
+  rescue ME.matches(/weird/, attribute: :my_custom_attr)
     puts 'yay!'
   end
 ```
