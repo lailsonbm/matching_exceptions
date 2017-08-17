@@ -65,7 +65,7 @@ By default, `message` will be matched (i.e. the exception will be rescued if `e.
 
 You can also specify a custom attribute with the keyword argument `attribute:`:
 
-```
+```ruby
   class CustomError < StandardError
     attr_reader :my_custom_attr
   end
