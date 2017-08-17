@@ -62,4 +62,20 @@ RSpec.describe MatchingExceptions do
 
     expect(rescued).to be_falsy
   end
+
+  context 'when there are multiple rescues' do
+    it 'rescues the correct error' do
+      rescued = false
+
+      begin
+        raise StandardError.new("rescue me!")
+      rescue ME.matches(/not me/)
+        rescued = false
+      rescue ME.matches(/me!/)
+        rescued = true
+      end
+
+      expect(rescued).to be_truthy
+    end
+  end
 end
