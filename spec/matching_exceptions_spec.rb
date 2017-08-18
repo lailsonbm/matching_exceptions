@@ -43,7 +43,7 @@ RSpec.describe MatchingExceptions do
 
     begin
       raise CustomError.new("blabla", "custom message")
-    rescue ME.matches(/message/, attribute: :custom_attribute)
+    rescue ME.matches(/message/, on: :custom_attribute)
       rescued = true
     end
 
@@ -55,7 +55,7 @@ RSpec.describe MatchingExceptions do
 
     begin
       raise CustomError.new("blabla", "custom message")
-    rescue ME.matches(/message/, attribute: :foo)
+    rescue ME.matches(/message/, on: :foo)
       rescued = true
     rescue
     end

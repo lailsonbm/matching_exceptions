@@ -65,7 +65,7 @@ Call `ME.matches(something)` in a rescue block to rescue exceptions with `someth
 
 By default, `message` will be matched (i.e. the exception will be rescued if `e.message == something`, or `e.message =~ something` if `something` is a regex).
 
-You can also specify a custom attribute with the keyword argument `attribute:`:
+You can also specify a custom method with the keyword argument `on:`:
 
 ```ruby
   class CustomError < StandardError
@@ -76,7 +76,7 @@ You can also specify a custom attribute with the keyword argument `attribute:`:
 
   begin
     raise CustomError.new('foo', 'some weird custom field')
-  rescue ME.matches(/weird/, attribute: :my_custom_attr)
+  rescue ME.matches(/weird/, on: :my_custom_attr)
     puts 'yay!'
   end
 ```
