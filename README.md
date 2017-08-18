@@ -1,5 +1,7 @@
 # MatchingExceptions
 
+[![Build Status](https://travis-ci.org/guava/matching_exceptions.svg?branch=master)](https://travis-ci.org/guava/matching_exceptions)
+
 Rescues exceptions using pattern matching.
 
 Usage example:
