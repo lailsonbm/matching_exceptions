@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["leonardo@guava.com.br", "guilherme@guava.com.br"]
 
   spec.summary       = "Allows exceptions to be pattern matched"
-  spec.description   = "Allows exceptions to be pattern matched"
+  spec.description   = "Rescues exceptions using pattern matching"
   spec.homepage      = "https://github.com/guava/matching_exceptions"
   spec.license       = "MIT"
 
