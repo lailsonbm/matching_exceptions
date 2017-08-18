@@ -69,14 +69,14 @@ You can also specify a custom method with the keyword argument `on:`:
 
 ```ruby
   class CustomError < StandardError
-    attr_reader :my_custom_attr
+    attr_reader :my_custom_method
   end
 
   ...
 
   begin
     raise CustomError.new('foo', 'some weird custom field')
-  rescue ME.matches(/weird/, on: :my_custom_attr)
+  rescue ME.matches(/weird/, on: :my_custom_method)
     puts 'yay!'
   end
 ```
