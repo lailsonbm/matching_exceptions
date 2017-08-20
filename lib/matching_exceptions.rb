@@ -22,7 +22,7 @@ module MatchingExceptions
   extend self
 
   def matches(matching, on: 'message')
-    self.tap do
+    tap do
       instance_variable_set(:@matching, matching)
       instance_variable_set(:@method, on)
     end
