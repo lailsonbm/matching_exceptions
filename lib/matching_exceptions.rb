@@ -1,7 +1,6 @@
 require "matching_exceptions/version"
 
 module MatchingExceptions
-  attr_accessor :klass
 
   def self.extended(base)
     define_method :=== do |other|
@@ -15,9 +14,10 @@ module MatchingExceptions
   extend self
 
   def matches(matching, on: 'message')
-    self.instance_variable_set(:@matching, matching)
-    self.instance_variable_set(:@method, on)
-    self
+    self.tap do
+      instance_variable_set(:@matching, matching)
+      instance_variable_set(:@method, on)
+    end
   end
 end
 
