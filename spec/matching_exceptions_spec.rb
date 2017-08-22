@@ -63,6 +63,19 @@ RSpec.describe MatchingExceptions do
     expect(rescued).to be_falsy
   end
 
+  it "passing nil returns false" do
+    rescued = false
+
+    begin
+      raise CustomError.new("custom message")
+    rescue ME.matches(nil)
+      rescued = true
+    rescue
+    end
+
+    expect(rescued).to be_falsy
+  end
+
   context 'when there are multiple rescues' do
     it 'rescues the correct error' do
       rescued = false
